@@ -1,0 +1,1039 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ConfigitAceImport SchemaVersion="5.0" xmlns="http://schemas.configit.com/ace/import">
+  <ImportDetails xmlns:v1="http://schemas.configit.com/ace/import/v1">
+    <v1:ImportId>Ace Export</v1:ImportId>
+    <v1:Description>Exported on 2020-06-29 by 'Henrik Hulgaard (Microsoft\henrik@configit.com)'</v1:Description>
+    <v1:Source>Ace</v1:Source>
+    <v1:AdditionalInformation>
+      <v1:Add Key="Branch" Value="Master" />
+      <v1:Add Key="Revision" Value="91" />
+      <v1:Add Key="ExportDate" Value="2020-06-29T13:57:46.76274Z" />
+      <v1:Add Key="ExportBy" Value="Henrik Hulgaard (Microsoft\henrik@configit.com)" />
+    </v1:AdditionalInformation>
+  </ImportDetails>
+  <DataValidationOptions xmlns:v1="http://schemas.configit.com/ace/import/v1">
+    <v1:ModelYearMapping Validation="Ignore" />
+    <v1:Rule Validation="Ignore" AllowAceRules="true" />
+    <v1:Default Validation="Ignore" AllowAceDefaults="true" />
+    <v1:AllowAnyLifecycle />
+  </DataValidationOptions>
+  <PostImportValidationOptions xmlns:v1="http://schemas.configit.com/ace/import/v1">
+    <v1:CompileProductRanges OnCompileFailure="Ignore" />
+    <v1:CreateWorkItem OnFailure="None" OnSuccess="None" />
+  </PostImportValidationOptions>
+  <Library xmlns:v1="http://schemas.configit.com/ace/import/v1" xmlns:library="http://schemas.configit.com/ace/import/v1/library">
+    <library:MetadataDefinitions>
+      <library:Metadata Name="IsImportedEntity" Description="Entity imported" DataType="Boolean" AllowDuplicateValues="true" MultiplicityMode="Single" />
+    </library:MetadataDefinitions>
+    <library:CodeSets />
+    <library:Labels />
+    <library:Languages />
+    <library:Families>
+      <library:FeatureFamilies>
+        <library:FeatureFamily Code="PROD" Description="Product Range" FeatureFamilyType="ProductRange" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+        <library:FeatureFamily Code="BRND" Description="Brand" FeatureFamilyType="Brand" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+        <library:FeatureFamily Code="COL_A" Description="Column A" FeatureFamilyType="Feature" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+        <library:FeatureFamily Code="COL_B" Description="Column B" FeatureFamilyType="Feature" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+        <library:FeatureFamily Code="COL_C" Description="Column C" FeatureFamilyType="Feature" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+        <library:FeatureFamily Code="COL_D" Description="Column D" FeatureFamilyType="Feature" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+        <library:FeatureFamily Code="COL_E" Description="Column E" FeatureFamilyType="Feature" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+        <library:FeatureFamily Code="COL_F" Description="Column F" FeatureFamilyType="Feature" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+        <library:FeatureFamily Code="COL_G" Description="Column G" FeatureFamilyType="Feature" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+        <library:FeatureFamily Code="COL_H" Description="Column H" FeatureFamilyType="Feature" SelectionType="Single" Lifecycle="Enabled">
+          <library:MetadataValues />
+          <library:CodeSetMappings />
+          <library:Labels />
+        </library:FeatureFamily>
+      </library:FeatureFamilies>
+      <library:StringFamilies />
+      <library:NumericFamilies />
+    </library:Families>
+    <library:Features>
+      <library:Feature Code="8QUEEN" Description="8-queen" FeatureFamily="PROD" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="CCOMPUTERS_F" Description="Configit Computers" FeatureFamily="BRND" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="A1" Description="A1" FeatureFamily="COL_A" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="A2" Description="A2" FeatureFamily="COL_A" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="A3" Description="A3" FeatureFamily="COL_A" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="A4" Description="A4" FeatureFamily="COL_A" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="A5" Description="A5" FeatureFamily="COL_A" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="A6" Description="A6" FeatureFamily="COL_A" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="A7" Description="A7" FeatureFamily="COL_A" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="A8" Description="A8" FeatureFamily="COL_A" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="B1" Description="B1" FeatureFamily="COL_B" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="B2" Description="B2" FeatureFamily="COL_B" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="B3" Description="B3" FeatureFamily="COL_B" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="B4" Description="B4" FeatureFamily="COL_B" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="B5" Description="B5" FeatureFamily="COL_B" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="B6" Description="B6" FeatureFamily="COL_B" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="B7" Description="B7" FeatureFamily="COL_B" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="B8" Description="B8" FeatureFamily="COL_B" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="C1" Description="C1" FeatureFamily="COL_C" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="C2" Description="C2" FeatureFamily="COL_C" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="C3" Description="C3" FeatureFamily="COL_C" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="C4" Description="C4" FeatureFamily="COL_C" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="C5" Description="C5" FeatureFamily="COL_C" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="C6" Description="C6" FeatureFamily="COL_C" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="C7" Description="C7" FeatureFamily="COL_C" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="C8" Description="C8" FeatureFamily="COL_C" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="D1" Description="D1" FeatureFamily="COL_D" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="D2" Description="D2" FeatureFamily="COL_D" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="D3" Description="D3" FeatureFamily="COL_D" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="D4" Description="D4" FeatureFamily="COL_D" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="D5" Description="D5" FeatureFamily="COL_D" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="D6" Description="D6" FeatureFamily="COL_D" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="D7" Description="D7" FeatureFamily="COL_D" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="D8" Description="D8" FeatureFamily="COL_D" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="E1" Description="E1" FeatureFamily="COL_E" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="E2" Description="E2" FeatureFamily="COL_E" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="E3" Description="E3" FeatureFamily="COL_E" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="E4" Description="E4" FeatureFamily="COL_E" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="E5" Description="E5" FeatureFamily="COL_E" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="E6" Description="E6" FeatureFamily="COL_E" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="E7" Description="E7" FeatureFamily="COL_E" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="E8" Description="E8" FeatureFamily="COL_E" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="F1" Description="F1" FeatureFamily="COL_F" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="F2" Description="F2" FeatureFamily="COL_F" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="F3" Description="F3" FeatureFamily="COL_F" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="F4" Description="F4" FeatureFamily="COL_F" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="F5" Description="F5" FeatureFamily="COL_F" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="F6" Description="F6" FeatureFamily="COL_F" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="F7" Description="F7" FeatureFamily="COL_F" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="F8" Description="F8" FeatureFamily="COL_F" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="G1" Description="G1" FeatureFamily="COL_G" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="G2" Description="G2" FeatureFamily="COL_G" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="G3" Description="G3" FeatureFamily="COL_G" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="G4" Description="G4" FeatureFamily="COL_G" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="G5" Description="G5" FeatureFamily="COL_G" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="G6" Description="G6" FeatureFamily="COL_G" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="G7" Description="G7" FeatureFamily="COL_G" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="G8" Description="G8" FeatureFamily="COL_G" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="H1" Description="H1" FeatureFamily="COL_H" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="H2" Description="H2" FeatureFamily="COL_H" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="H3" Description="H3" FeatureFamily="COL_H" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="H4" Description="H4" FeatureFamily="COL_H" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="H5" Description="H5" FeatureFamily="COL_H" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="H6" Description="H6" FeatureFamily="COL_H" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="H7" Description="H7" FeatureFamily="COL_H" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+      <library:Feature Code="H8" Description="H8" FeatureFamily="COL_H" Lifecycle="Enabled">
+        <library:MetadataValues />
+        <library:Descriptions />
+        <library:CodeSetMappings />
+      </library:Feature>
+    </library:Features>
+    <library:Brands>
+      <library:Brand Code="CCOMPUTERS" Description="Configit Computers" Colour="#e18383" Feature="CCOMPUTERS_F" FeatureFamily="BRND">
+        <library:MetadataValues />
+      </library:Brand>
+    </library:Brands>
+    <library:Markets>
+      <library:Market Code="CN" Description="People's Republic of China" Feature="CHN" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="EN" />
+          <library:Language Code="ZH" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="UK" Description="United Kingdom" Feature="GBR" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="EN" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="US" Description="United States of America" Feature="USA" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="EN" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="DK" Description="Denmark" Feature="DNK" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="EN" />
+          <library:Language Code="DA" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="PT" Description="Portugal" Feature="PRT" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="EN" />
+          <library:Language Code="PT" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="RO" Description="Romania" Feature="ROU" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="EN" />
+          <library:Language Code="RO" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="SE" Description="Sweden" Feature="SWE" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="EN" />
+          <library:Language Code="SE" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="DE" Description="Germany" Feature="DEU" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="DE" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="IT" Description="Italy" Feature="ITA" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="IT" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="ES" Description="Spain" Feature="ESP" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="ES" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+      <library:Market Code="CA" Description="Canada" Feature="CAN" FeatureFamily="MRKT">
+        <library:MetadataValues />
+        <library:Languages>
+          <library:Language Code="EN" />
+        </library:Languages>
+        <library:BrandSpecificData />
+      </library:Market>
+    </library:Markets>
+    <library:MarketGroups />
+    <library:ConfiguratorLayouts />
+    <library:ProductGroups />
+    <library:Properties />
+  </Library>
+  <ProductRanges xmlns:v1="http://schemas.configit.com/ace/import/v1" xmlns:library="http://schemas.configit.com/ace/import/v1/library" xmlns:productrange="http://schemas.configit.com/ace/import/v1/productrange">
+    <productrange:ProductRange Code="8QUEEN">
+      <productrange:Basics Description="8-Queen model" Brand="CCOMPUTERS" Feature="8QUEEN" FeatureFamily="PROD" UseArithmeticRules="true" UseBrochureModels="false" UseComplexEffectivity="false" />
+      <productrange:Events />
+      <productrange:Associations>
+        <productrange:FeatureFamilyAssociations>
+          <productrange:Family Code="COL_A">
+            <productrange:Features>
+              <productrange:Feature Code="A1">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="A2">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="A3">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="A4">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="A5">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="A6">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="A7">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="A8">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+            </productrange:Features>
+          </productrange:Family>
+          <productrange:Family Code="COL_B">
+            <productrange:Features>
+              <productrange:Feature Code="B1">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="B2">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="B3">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="B4">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="B5">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="B6">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="B7">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="B8">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+            </productrange:Features>
+          </productrange:Family>
+          <productrange:Family Code="COL_C">
+            <productrange:Features>
+              <productrange:Feature Code="C1">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="C2">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="C3">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="C4">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="C5">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="C6">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="C7">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="C8">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+            </productrange:Features>
+          </productrange:Family>
+          <productrange:Family Code="COL_D">
+            <productrange:Features>
+              <productrange:Feature Code="D1">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="D2">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="D3">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="D4">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="D5">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="D6">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="D7">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="D8">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+            </productrange:Features>
+          </productrange:Family>
+          <productrange:Family Code="COL_E">
+            <productrange:Features>
+              <productrange:Feature Code="E1">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="E2">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="E3">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="E4">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="E5">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="E6">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="E7">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="E8">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+            </productrange:Features>
+          </productrange:Family>
+          <productrange:Family Code="COL_F">
+            <productrange:Features>
+              <productrange:Feature Code="F1">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="F2">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="F3">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="F4">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="F5">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="F6">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="F7">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="F8">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+            </productrange:Features>
+          </productrange:Family>
+          <productrange:Family Code="COL_G">
+            <productrange:Features>
+              <productrange:Feature Code="G1">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="G2">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="G3">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="G4">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="G5">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="G6">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="G7">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="G8">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+            </productrange:Features>
+          </productrange:Family>
+          <productrange:Family Code="COL_H">
+            <productrange:Features>
+              <productrange:Feature Code="H1">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="H2">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="H3">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="H4">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="H5">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="H6">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="H7">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+              <productrange:Feature Code="H8">
+                <productrange:Effectivities>
+                  <productrange:Effectivity StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" />
+                </productrange:Effectivities>
+              </productrange:Feature>
+            </productrange:Features>
+          </productrange:Family>
+        </productrange:FeatureFamilyAssociations>
+        <productrange:StringAssociations />
+        <productrange:NumericAssociations />
+        <productrange:PropertyAssociations />
+      </productrange:Associations>
+      <productrange:Rules>
+        <productrange:TextRules>
+          <productrange:TextRule Code="1" Description="c[i] &lt;&gt; c[j]" Intent="Engineering" StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" IsEnabled="true" IsLocked="false">
+            <productrange:MetadataValues />
+            <productrange:Body>COL_A != COL_B and COL_A != COL_C and COL_A != COL_D and COL_A != COL_E and COL_A != COL_F and COL_A != COL_G and COL_A != COL_H and
+COL_B != COL_C and COL_B != COL_D and COL_B != COL_E and COL_B != COL_F and COL_B != COL_G and COL_B != COL_H and
+COL_C != COL_D and COL_C != COL_E and COL_C != COL_F and COL_C != COL_G and COL_C != COL_H and
+COL_D != COL_E and COL_D != COL_F and COL_D != COL_G and COL_D != COL_H and
+COL_E != COL_F and COL_E != COL_G and COL_E != COL_H and
+COL_F != COL_G and COL_F != COL_H and
+COL_G != COL_H </productrange:Body>
+          </productrange:TextRule>
+          <productrange:TextRule Code="2" Description="NW-SE" Intent="Engineering" StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" IsEnabled="true" IsLocked="false">
+            <productrange:MetadataValues />
+            <productrange:Body>/*
+for all i &lt; j:
+  i+c[i] &lt;&gt; j+c[j]  // NW-SE
+*/
+
+0+COL_A != 1+COL_B and 0+COL_A != 2+COL_C and 0+COL_A != 3+COL_D and 0+COL_A != 4+COL_E and 0+COL_A != 5+COL_F and 0+COL_A != 6+COL_G and 0+COL_A != 7+COL_H and
+1+COL_B != 2+COL_C and 1+COL_B != 3+COL_D and 1+COL_B != 4+COL_E and 1+COL_B != 5+COL_F and 1+COL_B != 6+COL_G and 1+COL_B != 7+COL_H and
+2+COL_C != 3+COL_D and 2+COL_C != 4+COL_E and 2+COL_C != 5+COL_F and 2+COL_C != 6+COL_G and 2+COL_C != 7+COL_H and
+3+COL_D != 4+COL_E and 3+COL_D != 5+COL_F and 3+COL_D != 6+COL_G and 3+COL_D != 7+COL_H and
+4+COL_E != 5+COL_F and 4+COL_E != 6+COL_G and 4+COL_E != 7+COL_H and
+5+COL_F != 6+COL_G and 5+COL_F != 7+COL_H and
+6+COL_G != 7+COL_H</productrange:Body>
+          </productrange:TextRule>
+          <productrange:TextRule Code="3" Description="SW-NE" Intent="Engineering" StartEvent="8QUEEN_START" EndEvent="8QUEEN_END" IsEnabled="true" IsLocked="false">
+            <productrange:MetadataValues />
+            <productrange:Body>/*
+for all i &lt; j:
+  i-c[i] &lt;&gt; j-c[j]   // SW-NE
+*/
+
+0-COL_A != 1-COL_B and 0-COL_A != 2-COL_C and 0-COL_A != 3-COL_D and 0-COL_A != 4-COL_E and 0-COL_A != 5-COL_F and 0-COL_A != 6-COL_G and 0-COL_A != 7-COL_H and
+1-COL_B != 2-COL_C and 1-COL_B != 3-COL_D and 1-COL_B != 4-COL_E and 1-COL_B != 5-COL_F and 1-COL_B != 6-COL_G and 1-COL_B != 7-COL_H and
+2-COL_C != 3-COL_D and 2-COL_C != 4-COL_E and 2-COL_C != 5-COL_F and 2-COL_C != 6-COL_G and 2-COL_C != 7-COL_H and
+3-COL_D != 4-COL_E and 3-COL_D != 5-COL_F and 3-COL_D != 6-COL_G and 3-COL_D != 7-COL_H and
+4-COL_E != 5-COL_F and 4-COL_E != 6-COL_G and 4-COL_E != 7-COL_H and
+5-COL_F != 6-COL_G and 5-COL_F != 7-COL_H and
+6-COL_G != 7-COL_H</productrange:Body>
+          </productrange:TextRule>
+        </productrange:TextRules>
+        <productrange:TableRules />
+        <productrange:PackRules />
+      </productrange:Rules>
+      <productrange:SellableUnits>
+        <productrange:DefiningFeatureFamilies />
+      </productrange:SellableUnits>
+      <productrange:Defaults />
+      <productrange:FamilyPriorities>
+        <productrange:HighPriority />
+        <productrange:LowPriority />
+      </productrange:FamilyPriorities>
+      <productrange:FeaturePriorities>
+        <productrange:Family Code="COL_A">
+          <productrange:Features>
+            <productrange:Feature Code="A1" />
+            <productrange:Feature Code="A2" />
+            <productrange:Feature Code="A3" />
+            <productrange:Feature Code="A4" />
+            <productrange:Feature Code="A5" />
+            <productrange:Feature Code="A6" />
+            <productrange:Feature Code="A7" />
+            <productrange:Feature Code="A8" />
+          </productrange:Features>
+        </productrange:Family>
+        <productrange:Family Code="COL_B">
+          <productrange:Features>
+            <productrange:Feature Code="B1" />
+            <productrange:Feature Code="B2" />
+            <productrange:Feature Code="B3" />
+            <productrange:Feature Code="B4" />
+            <productrange:Feature Code="B5" />
+            <productrange:Feature Code="B6" />
+            <productrange:Feature Code="B7" />
+            <productrange:Feature Code="B8" />
+          </productrange:Features>
+        </productrange:Family>
+        <productrange:Family Code="COL_C">
+          <productrange:Features>
+            <productrange:Feature Code="C1" />
+            <productrange:Feature Code="C2" />
+            <productrange:Feature Code="C3" />
+            <productrange:Feature Code="C4" />
+            <productrange:Feature Code="C5" />
+            <productrange:Feature Code="C6" />
+            <productrange:Feature Code="C7" />
+            <productrange:Feature Code="C8" />
+          </productrange:Features>
+        </productrange:Family>
+        <productrange:Family Code="COL_D">
+          <productrange:Features>
+            <productrange:Feature Code="D1" />
+            <productrange:Feature Code="D2" />
+            <productrange:Feature Code="D3" />
+            <productrange:Feature Code="D4" />
+            <productrange:Feature Code="D5" />
+            <productrange:Feature Code="D6" />
+            <productrange:Feature Code="D7" />
+            <productrange:Feature Code="D8" />
+          </productrange:Features>
+        </productrange:Family>
+        <productrange:Family Code="COL_E">
+          <productrange:Features>
+            <productrange:Feature Code="E1" />
+            <productrange:Feature Code="E2" />
+            <productrange:Feature Code="E3" />
+            <productrange:Feature Code="E4" />
+            <productrange:Feature Code="E5" />
+            <productrange:Feature Code="E6" />
+            <productrange:Feature Code="E7" />
+            <productrange:Feature Code="E8" />
+          </productrange:Features>
+        </productrange:Family>
+        <productrange:Family Code="COL_F">
+          <productrange:Features>
+            <productrange:Feature Code="F1" />
+            <productrange:Feature Code="F2" />
+            <productrange:Feature Code="F3" />
+            <productrange:Feature Code="F4" />
+            <productrange:Feature Code="F5" />
+            <productrange:Feature Code="F6" />
+            <productrange:Feature Code="F7" />
+            <productrange:Feature Code="F8" />
+          </productrange:Features>
+        </productrange:Family>
+        <productrange:Family Code="COL_G">
+          <productrange:Features>
+            <productrange:Feature Code="G1" />
+            <productrange:Feature Code="G2" />
+            <productrange:Feature Code="G3" />
+            <productrange:Feature Code="G4" />
+            <productrange:Feature Code="G5" />
+            <productrange:Feature Code="G6" />
+            <productrange:Feature Code="G7" />
+            <productrange:Feature Code="G8" />
+          </productrange:Features>
+        </productrange:Family>
+        <productrange:Family Code="COL_H">
+          <productrange:Features>
+            <productrange:Feature Code="H1" />
+            <productrange:Feature Code="H2" />
+            <productrange:Feature Code="H3" />
+            <productrange:Feature Code="H4" />
+            <productrange:Feature Code="H5" />
+            <productrange:Feature Code="H6" />
+            <productrange:Feature Code="H7" />
+            <productrange:Feature Code="H8" />
+          </productrange:Features>
+        </productrange:Family>
+      </productrange:FeaturePriorities>
+      <productrange:DefaultPriorities />
+      <productrange:PropertyValues>
+        <productrange:Families />
+        <productrange:Features />
+      </productrange:PropertyValues>
+      <productrange:ProductRangeMetadata>
+        <productrange:MetadataValues />
+      </productrange:ProductRangeMetadata>
+      <productrange:DefaultConfiguratorLayout ConfiguratorLayout="" />
+    </productrange:ProductRange>
+  </ProductRanges>
+</ConfigitAceImport>

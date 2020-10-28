@@ -14,7 +14,7 @@ const toQueryString = (obj: any) => {
   return (
     '?' +
     Object.keys(obj)
-      .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
+      .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
       .join('&')
   );
 };
@@ -31,13 +31,14 @@ export default (url: string, method: string, payload: object) => {
   headers.append('Accept', 'application/json');
   headers.append('Content-Type', 'application/json');
   headers.append('Access-Control-Allow-Origin', '*');
+  // headers.append('Authorization', 'ApiKey ' + process.env.REACT_APP_API_KEY);
 
   const init = {
     method,
     headers,
     mode: 'cors' as RequestMode,
     cache: 'default' as RequestCache,
-    body: method !== 'GET' ? JSON.stringify(payload) : undefined
+    body: method !== 'GET' ? JSON.stringify(payload) : undefined,
   };
 
   const query = method === 'GET' ? toQueryString(payload) : '';
@@ -47,16 +48,16 @@ export default (url: string, method: string, payload: object) => {
   );
 
   return fetch(request)
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
-        return response.json().then(serverError => {
+        return response.json().then((serverError) => {
           throw new ServerError(response.statusText, serverError);
         });
       }
 
       return response.json();
     })
-    .catch(err => {
+    .catch((err) => {
       let serverError = err.serverError;
       if (serverError) {
         if (console.groupCollapsed) {

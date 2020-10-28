@@ -1,3 +1,5 @@
 .next
 deploy-cheat.sh
 build
+
+.vercel

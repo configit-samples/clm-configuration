@@ -24,7 +24,7 @@ type RequestType = {
   };
 };
 
-const CONFIGURE_URL = `/configure`;
+const CONFIGURE_URL = ``;
 
 const baseRequest: RequestType = {
   currency: 'EUR',
@@ -34,21 +34,21 @@ const baseRequest: RequestType = {
   line: {
     id: 'ROOT',
     quantity: { value: 1, unit: 'EA' },
-    productId: 'IHEAR'
-  }
+    productId: 'IHEAR',
+  },
 };
 
 const baseAssignments = [
   { variableId: 'MRKT', value: 'GBR' },
   {
     variableId: 'DIM_BUILDDATE',
-    value: '2018-10-17T10:00:00.000Z'
-  }
+    value: '2018-10-17T10:00:00.000Z',
+  },
 ];
 
 const brochureModelAssignment = (brochureModel: string) => ({
   variableId: BROCHURE_MODEL_VARIABLE_ID,
-  value: brochureModel
+  value: brochureModel,
 });
 
 export const reset = async (packagePath: string) => {
@@ -67,9 +67,9 @@ export const getConfiguration = async (
       variableAssignments: [
         brochureModelAssignment(brochureModel),
         ...baseAssignments,
-        ...(assignments || [])
-      ]
-    }
+        ...(assignments || []),
+      ],
+    },
   };
 
   const resp = (await fetch(
@@ -79,13 +79,13 @@ export const getConfiguration = async (
   )) as ResponseType;
 
   const sections = resp.sections
-    .filter(s => s.id !== 'Scope' && s.id !== 'General')
-    .map(s => s.sections[0]);
+    .filter((s) => s.id !== 'Scope' && s.id !== 'General')
+    .map((s) => s.sections[0]);
 
   return {
     brochureModel: getAssignedValue(getBrochureModelVariable(resp)),
     sections,
-    removedAssignments: resp.removedAssignments.variableAssignments
+    removedAssignments: resp.removedAssignments.variableAssignments,
   };
 };
 
@@ -94,8 +94,8 @@ export const getBrochureModels = async (packagePath: string) => {
     ...baseRequest,
     line: {
       ...baseRequest.line,
-      variableAssignments: baseAssignments
-    }
+      variableAssignments: baseAssignments,
+    },
   };
 
   const resp = (await fetch(
@@ -105,12 +105,12 @@ export const getBrochureModels = async (packagePath: string) => {
   )) as ResponseType;
 
   const brochureModels = getBrochureModelVariable(resp).values.filter(
-    value => !value.incompatible
+    (value) => !value.incompatible
   );
 
   return { brochureModels };
 };
 
 const getBrochureModelVariable = (resp: ResponseType) =>
-  resp.sections[0].variables.find(v => v.id === BROCHURE_MODEL_VARIABLE_ID) ||
+  resp.sections[0].variables.find((v) => v.id === BROCHURE_MODEL_VARIABLE_ID) ||
   ({} as Variable);

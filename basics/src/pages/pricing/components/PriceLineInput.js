@@ -5,7 +5,7 @@ import './PriceLineInput.css';
 /**
  * Component for editing the rate of a priceline
  *
- * Deals with positive and negative sign constraints, such the the user doesn't
+ * Deals with positive and negative sign constraints so that the user doesn't
  * have to.
  */
 function PriceLineInput({ priceLine, onAssign }) {

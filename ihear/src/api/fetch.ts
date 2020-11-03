@@ -20,10 +20,10 @@ const toQueryString = (obj: any) => {
 };
 
 /**
- * Wraps fetch function with correct
- * - Http headers
- * - Setup cors
- * - Throw `ServerError` when communication with server fails
+ * Wraps fetch function and sets up:
+ * - HTTP headers
+ * - CORS
+ * - Throws `ServerError` when communication with server fails
  * - Logs and groups errors in the console
  */
 export default (url: string, method: string, payload: object) => {
@@ -31,6 +31,10 @@ export default (url: string, method: string, payload: object) => {
   headers.append('Accept', 'application/json');
   headers.append('Content-Type', 'application/json');
   headers.append('Access-Control-Allow-Origin', '*');
+
+  // Uncomment if your app needs to authenticate. For details, 
+  // see https://github.com/configit-samples/ace-configuration-api-samples#authentication.
+  //
   // headers.append('Authorization', 'ApiKey ' + process.env.REACT_APP_API_KEY);
 
   const init = {

@@ -26,13 +26,13 @@ export function Section({
 
   return (
     <section>
-      {/* The name of the first level of sections are already dislayed in the tabs */}
+      {/* The name of the first level of sections are already displayed in the tabs */}
       {level > 0 && (
         <header className={`section-header section-header-level${level}`}>
           {section.name}
         </header>
       )}
-      {visibleVariables.map(variable => (
+      {visibleVariables.map((variable) => (
         <VariableLine
           key={variable.id}
           variable={variable}
@@ -41,7 +41,7 @@ export function Section({
           removedAssignments={removedAssignments}
         />
       ))}
-      {(section.sections || []).map(subSection => (
+      {(section.sections || []).map((subSection) => (
         <Section
           key={`${section.id}-${subSection.id}`}
           section={subSection}

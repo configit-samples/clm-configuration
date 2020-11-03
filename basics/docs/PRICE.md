@@ -126,7 +126,7 @@ Often the price of a product depends on external factors such as:
 
 - Where the product is sold
 - Who the product is sold to
-- Where the product is manfufactured
+- Where the product is manufactured
 
 Providing these external factors is the job of arguments. Knowing which arguments are needed depends on how the prices were defined.
 
@@ -282,7 +282,7 @@ function PriceLineInput({ priceLine, onAssign }) {
 ## Quantity
 
 Quantity is part of calculating the price of a product; the price definitions may have specific logic regarding quantity such as volume discounts.
-Quantity consists of a value (amount) and a unit (e.g., pieces, boxes, bottles). Therefore we need to request the price sheet in a given quantity. In our sample application, we have a `<PriceHeader>` component that lets the user change the quantity.
+Quantity consists of a value (amount) and a unit (e.g., pieces, boxes, bottles). Therefore, we need to request the price sheet in a given quantity. In our sample application, we have a `<PriceHeader>` component that lets the user change the quantity.
 
 It renders:
 

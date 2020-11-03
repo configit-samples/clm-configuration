@@ -6,25 +6,23 @@ The iHear sample illustrates how to build a webshop-style configurator with the 
 
 ## Getting started
 
-Before you run the application, change the settings in the `.env` file to match your local setup of Ace Platform.
+Before running the application for the first time, change the settings in the
+`.env` file to match your Ace Platform installation:
 
-- Change the `REACT_APP_API_URL` to the URL of your Ace Platform installation.
-- Change the `REACT_APP_PACKAGE_PATH` to reference the package you want to use. The demo can use any valid and published package containing a configurable product called iHear.
+- `REACT_APP_API_URL` — Replace `localhost:9000` with your Ace Platform host
+  and port.
+- `REACT_APP_PACKAGE_PATH` — Reference the published package you want to use.
+  The demo requires the package has a configurable product with the ID `IHEAR`.
+- `REACT_APP_API_KEY` — Add your API key if necessary. See 
+  [Authentication](../README.md#authentication) for details.
 
-For example:
-
-```
-REACT_APP_API_URL=http://localhost:9000/configurator/v1
-REACT_APP_PACKAGE_PATH=samples/ihear
-```
-
-Then install the code dependencies:
+Next, install the code dependencies:
 
 ```
 npm install
 ```
 
-And start the application with:
+Then start the application:
 
 ```
 npm start

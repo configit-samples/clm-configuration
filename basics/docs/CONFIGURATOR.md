@@ -25,7 +25,7 @@ We start with a quick review of the `/configure` endpoint. The endpoint is state
 
 The `/configure` endpoint is designed for building interactive configurators. This means that:
 
-- The endpoint responds with a structure of `sections`, `variables` and `values`. This structure depends on the product we're configuring and a client application can use this structure to organize the the variables/values for the user.
+- The endpoint responds with a structure of `sections`, `variables` and `values`. This structure depends on the product we're configuring, and a client application can use this structure to organize the variables/values for the user.
 - The names of the `sections`, `variables` and `values` are translations and you can request a translation in a different language (if provided in the package)
 - The value states in the response are simple and designed for a UI. There are two fields on each value that indicates the state:
   - `assigned` can be `byUser`, `byRule`, `byDefault`, `byPhase` or `undefined` and indicates why it is assigned. It if `undefined` it the value is not assigned.
@@ -152,7 +152,7 @@ if (visibleVariables.length === 0 && section.sections.length === 0) {
 
 return (
   <div>
-    {/* The name of the first level of sections are already dislayed in the tabs */}
+    {/* The name of the first level of sections are already displayed in the tabs */}
     {level > 0 && (
       <header className={`section-header section-header-level${level}`}>
         {section.name}
@@ -273,7 +273,7 @@ Before we start looking at the components that let users select values for the v
 
 ### Managing state
 
-The `/configure` endpoint is stateless. Thus, it doesn't store any state between requests. Each time we call the server, the server has forgotten all about any previous calls. Therefore it is up to the client to store and maintain a list of choices the user has made so far.
+The `/configure` endpoint is stateless. Thus, it doesn't store any state between requests. Each time we call the server, the server has forgotten all about any previous calls. Therefore, it is up to the client to store and maintain a list of choices the user has made so far.
 
 We store this list of choices (or assignments) as an array in our root component and define two functions for handling assignments and un-assignments.
 
@@ -352,7 +352,7 @@ class Dropdown extends React.Component {
 }
 ```
 
-In the `<Option>` component we wrap the "native" [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) and add a css class when the value is `incompatible`. This allows us to color incompatible options to indicate the value is incompatible with the current configuration. In the section about [conflict resolution](#conflict-resolution) we'll look at how to handle assignments of `incompatible` values.
+In the `<Option>` component we wrap the "native" [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) and add a CSS class when the value is `incompatible`. This allows us to color incompatible options to indicate the value is incompatible with the current configuration. In the section about [conflict resolution](#conflict-resolution) we'll look at how to handle assignments of `incompatible` values.
 
 ```jsx
 function Option({ value }) {
@@ -525,7 +525,7 @@ Below is a sample response for a multi-assign variable. As we can see, the varia
 Here we can see:
 
 - The **BOTTLE** value's `excluded` state is assigned by the user. The user has selected that he doesn't want a bottle.
-- The **CARRIER** value is assigned by the user. The user has selected that he wants a carrier. Further, the carrier's `excluded` state is incompatible; so in the future, if the user selects 'No' for carrier, one or more other user assignments will be removed by the configurator.
+- The **CARRIER** value is assigned by the user. The user has selected that he wants a carrier. Further, the carrier's `excluded` state is incompatible; so, in the future, if the user selects 'No' for carrier, one or more other user assignments will be removed by the configurator.
 
 Likewise, when we make assignments, we need to specify if we are assigning to the include or exclude state. To assign 'No' to bottle and 'Yes' to carrier we need these assignments:
 
@@ -696,7 +696,7 @@ function ConflictDialog({ conflict, onAccept, onReject }) {
 }
 ```
 
-The `<ConflictDialog>` expects a `conflict` object that has a `currentAssignment` and a list of `removedAssingments` and two functions or handling acceptance and rejection.
+The `<ConflictDialog>` expects a `conflict` object that has a `currentAssignment` and a list of `removedAssignments` and two functions or handling acceptance and rejection.
 
 The creation of the `conflict` object and the implementation of the `onAccept` and `onReject` is done in the `<Configurator>` component. After we have received a response from the server (see the [Getting started](#getting-started) section for details), we want to check for conflicts.
 

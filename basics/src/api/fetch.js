@@ -18,15 +18,20 @@ class ServerError extends Error {
 }
 
 /**
- * Wraps fetch function and setup
+ * Wraps fetch function and sets up:
  *
- * - Http headers
- * - Setup cors
+ * - HTTP headers
+ * - CORS
  */
 export default (url, method, payload) => {
   const headers = new Headers();
   headers.append('Accept', 'application/json');
   headers.append('Content-Type', 'application/json');
+
+  // Uncomment if your app needs to authenticate. For details,
+  // see https://github.com/configit-samples/ace-configuration-api-samples#authentication.
+  //
+  // headers.append('Authorization', 'ApiKey ' + process.env.REACT_APP_API_KEY);
 
   const { packagePath, ...otherPayload } = payload;
   const init = {
@@ -34,7 +39,7 @@ export default (url, method, payload) => {
     headers,
     mode: 'cors',
     cache: 'default',
-    body: method !== 'GET' ? JSON.stringify(otherPayload) : undefined
+    body: method !== 'GET' ? JSON.stringify(otherPayload) : undefined,
   };
 
   const query =
@@ -45,9 +50,9 @@ export default (url, method, payload) => {
   );
 
   return fetch(request)
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
-        return response.json().then(err => {
+        return response.json().then((err) => {
           throw new ServerError(
             err.type ? err.type : 'UNKNOWN_ERR',
             err.message ? err.message : 'Unknown error'
@@ -56,7 +61,7 @@ export default (url, method, payload) => {
       }
       return response.json();
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(`FETCH ERROR: [${err.type}] ${err.message}`);
       throw err;
     });

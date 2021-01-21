@@ -1,8 +1,8 @@
-const toQueryString = obj => {
+const toQueryString = (obj) => {
   return (
     '?' +
     Object.keys(obj)
-      .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
+      .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
       .join('&')
   );
 };
@@ -27,6 +27,10 @@ export default (url, method, payload) => {
   const headers = new Headers();
   headers.append('Accept', 'application/json');
   headers.append('Content-Type', 'application/json');
+  headers.append('Access-Control-Allow-Origin', '*');
+  if (process.env.REACT_APP_API_KEY) {
+    headers.append('Authorization', 'ApiKey ' + process.env.REACT_APP_API_KEY);
+  }
 
   const { packagePath, ...otherPayload } = payload;
   const init = {
@@ -34,8 +38,10 @@ export default (url, method, payload) => {
     headers,
     mode: 'cors',
     cache: 'default',
-    body: method !== 'GET' ? JSON.stringify(otherPayload) : undefined
+    body: method !== 'GET' ? JSON.stringify(otherPayload) : undefined,
   };
+
+  console.log(process.env);
 
   const query =
     method === 'GET' ? toQueryString(payload) : toQueryString({ packagePath });
@@ -45,9 +51,9 @@ export default (url, method, payload) => {
   );
 
   return fetch(request)
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
-        return response.json().then(err => {
+        return response.json().then((err) => {
           throw new ServerError(
             err.type ? err.type : 'UNKNOWN_ERR',
             err.message ? err.message : 'Unknown error'
@@ -56,7 +62,7 @@ export default (url, method, payload) => {
       }
       return response.json();
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(`FETCH ERROR: [${err.type}] ${err.message}`);
       throw err;
     });

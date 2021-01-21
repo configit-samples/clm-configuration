@@ -75,8 +75,8 @@ export async function makeBoard(queens, mode: CompletionMode) {
 async function configure(queens: Map<number, number>) {
   const board = emptyBoard();
   const assignments = toAssignments(queens);
-  const { phases } = await api.assign(assignments);
-  const variables = phases[0].sections[0].variables;
+  const { sections } = await api.assign(assignments);
+  const variables = sections[0].variables;
 
   variables.forEach((variable) => {
     if (variable.id.startsWith('COL_')) {

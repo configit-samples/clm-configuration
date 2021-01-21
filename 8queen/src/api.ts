@@ -83,7 +83,7 @@ const baseRequest = {
 const baseAssignments = [
   {
     variableId: 'DIM_BUILDDATE',
-    value: '2020-01-01T10:00:00.000Z',
+    value: '2022-01-01T10:00:00.000Z',
   },
 ];
 

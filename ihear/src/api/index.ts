@@ -2,9 +2,10 @@ import fetch from './fetch';
 import { Assignment, IncompatibleAssignment, Variable, Section } from './types';
 import { getAssignedValue } from './variable';
 
-const BROCHURE_MODEL_VARIABLE_ID = 'BMOD';
+const BROCHURE_MODEL_VARIABLE_ID = 'IHEAR_BM';
 
 type ResponseType = {
+  phases: { sections: Section[] };
   sections: Section[];
   removedAssignments: {
     variableAssignments: IncompatibleAssignment[];
@@ -28,9 +29,9 @@ const CONFIGURE_URL = ``;
 
 const baseRequest: RequestType = {
   currency: 'EUR',
-  language: 'uk_en',
+  language: 'EN_UK',
   date: new Date(),
-  viewId: 'DEFAULT',
+  viewId: 'DEMO',
   line: {
     id: 'ROOT',
     quantity: { value: 1, unit: 'EA' },
@@ -42,7 +43,7 @@ const baseAssignments = [
   { variableId: 'MRKT', value: 'GBR' },
   {
     variableId: 'DIM_BUILDDATE',
-    value: '2018-10-17T10:00:00.000Z',
+    value: '2022-10-17T10:00:00.000Z',
   },
 ];
 
@@ -78,9 +79,7 @@ export const getConfiguration = async (
     request
   )) as ResponseType;
 
-  const sections = resp.sections
-    .filter((s) => s.id !== 'Scope' && s.id !== 'General')
-    .map((s) => s.sections[0]);
+  const sections = resp.sections;
 
   return {
     brochureModel: getAssignedValue(getBrochureModelVariable(resp)),
@@ -112,5 +111,6 @@ export const getBrochureModels = async (packagePath: string) => {
 };
 
 const getBrochureModelVariable = (resp: ResponseType) =>
-  resp.sections[0].variables.find((v) => v.id === BROCHURE_MODEL_VARIABLE_ID) ||
-  ({} as Variable);
+  resp.phases[0].sections[0].variables.find(
+    (v) => v.id === BROCHURE_MODEL_VARIABLE_ID
+  ) || ({} as Variable);

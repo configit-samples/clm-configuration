@@ -41,8 +41,6 @@ export default (url, method, payload) => {
     body: method !== 'GET' ? JSON.stringify(otherPayload) : undefined,
   };
 
-  console.log(process.env);
-
   const query =
     method === 'GET' ? toQueryString(payload) : toQueryString({ packagePath });
   const request = new Request(

@@ -23,29 +23,3 @@ And start the application with:
 ```
 npm start
 ```
-
-## Deployment to vercel
-
-After having logged in to Vercel run
-
-```
-vercel env pull
-```
-
-Then run
-
-```
-vercel
-```
-
-or
-
-```
-vercel --prod
-```
-
-Simulate the deployment environment locally with
-
-```
-vercel dev
-```

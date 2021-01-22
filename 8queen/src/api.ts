@@ -10,15 +10,6 @@ class ServerError extends Error {
   }
 }
 
-const toQueryString = (obj: any) => {
-  return (
-    '?' +
-    Object.keys(obj)
-      .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
-      .join('&')
-  );
-};
-
 /**
  * Wraps fetch function with correct
  * - Http headers
@@ -26,7 +17,7 @@ const toQueryString = (obj: any) => {
  * - Throw `ServerError` when communication with server fails
  * - Logs and groups errors in the console
  */
-export default (url: string, method: string, payload: object) => {
+function localFetch(payload: object) {
   const headers = new Headers();
   headers.append('Accept', 'application/json');
   headers.append('Content-Type', 'application/json');
@@ -34,17 +25,19 @@ export default (url: string, method: string, payload: object) => {
   if (process.env.REACT_APP_API_KEY) {
     headers.append('Authorization', 'ApiKey ' + process.env.REACT_APP_API_KEY);
   }
+
   const init = {
-    method,
+    method: 'POST',
     headers,
     mode: 'cors' as RequestMode,
     cache: 'default' as RequestCache,
-    body: method !== 'GET' ? JSON.stringify(payload) : undefined,
+    body: JSON.stringify(payload),
   };
 
-  const query = method === 'GET' ? toQueryString(payload) : '';
   const request = new Request(
-    process.env.REACT_APP_API_URL + url + query,
+    process.env.REACT_APP_API_URL +
+      '?packagePath=' +
+      process.env.REACT_APP_PACKAGE_PATH,
     init
   );
 
@@ -55,7 +48,6 @@ export default (url: string, method: string, payload: object) => {
           throw new ServerError(response.statusText, serverError);
         });
       }
-
       return response.json();
     })
     .catch((err) => {
@@ -74,4 +66,34 @@ export default (url: string, method: string, payload: object) => {
         throw new Error('Something went wrong, try again later');
       }
     });
+}
+
+const baseRequest = {
+  currency: 'EUR',
+  language: 'system',
+  date: new Date(),
+  viewId: 'DEFAULT',
+  line: {
+    id: 'ROOT',
+    quantity: { value: 1, unit: 'EA' },
+    productId: '8QUEEN',
+  },
 };
+
+const baseAssignments = [
+  {
+    variableId: 'DIM_BUILDDATE',
+    value: '2022-01-01T10:00:00.000Z',
+  },
+];
+
+export async function assign(assignments) {
+  const request = {
+    ...baseRequest,
+    line: {
+      ...baseRequest.line,
+      variableAssignments: [...baseAssignments, ...(assignments || [])],
+    },
+  };
+  return await localFetch(request);
+}

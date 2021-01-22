@@ -30,7 +30,7 @@ const FormatValue = ({ assignment }) => {
 };
 
 /**
- * Format a multivalued assignment
+ * Format a multi-valued assignment
  */
 const FormatMultiAssignment = ({ assignment, separator }) => (
   <>
@@ -68,7 +68,11 @@ function ConflictDialog({ conflict, onAccept, onReject }) {
   const removedAssignments = (conflict || {}).removedAssignments;
 
   return (
-    <Dialog onDismiss={onReject} isOpen={!!conflict}>
+    <Dialog
+      aria-label="Conflict Dialog"
+      onDismiss={onReject}
+      isOpen={!!conflict}
+    >
       <div className="conflict">
         <div className="conflict-content">
           <h1>Assign and remove?</h1>
@@ -85,7 +89,7 @@ function ConflictDialog({ conflict, onAccept, onReject }) {
               </ul>
               <div>Removes</div>
               <ul>
-                {removedAssignments.map(ra => (
+                {removedAssignments.map((ra) => (
                   <li key={ra.variable.id}>
                     <FormatAssignment assignment={ra} separator="From" />
                   </li>

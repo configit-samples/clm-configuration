@@ -9,16 +9,16 @@ type SectionConfiguratorProps = {
     assignment: Assignment
   ) => Promise<IncompatibleAssignment[]>;
 };
-const SectionConfigurator: React.SFC<SectionConfiguratorProps> = ({
+function SectionConfigurator({
   section,
   onAssign,
   onUnassign,
-  onCheckRemovedAssignments
-}) => {
+  onCheckRemovedAssignments,
+}: SectionConfiguratorProps) {
   return (
     <section>
       <h3>{section.name}</h3>
-      {section.variables.map(variable => (
+      {section.variables.map((variable) => (
         <VariableLine
           variable={variable}
           key={variable.id}
@@ -36,6 +36,6 @@ const SectionConfigurator: React.SFC<SectionConfiguratorProps> = ({
       `}</style>
     </section>
   );
-};
+}
 
 export default SectionConfigurator;

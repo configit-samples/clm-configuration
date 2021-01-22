@@ -52,7 +52,7 @@ export default class ProductsPage extends React.Component<
       assignments: session.assignments,
       activeSection: session.activeSection,
       sections: result.sections,
-      brochureModel: result.brochureModel
+      brochureModel: result.brochureModel,
     });
   }
 
@@ -60,7 +60,7 @@ export default class ProductsPage extends React.Component<
     const session = {
       assignments: this.state.assignments as Assignment[],
       brochureModelId: this.props.match.params['brochureModelId'],
-      activeSection: this.state.activeSection
+      activeSection: this.state.activeSection,
     };
     store.put(session);
     return session;
@@ -71,7 +71,7 @@ export default class ProductsPage extends React.Component<
     removedAssignments: Assignment[] = []
   ) => {
     let newAssignments = this.state.assignments || [];
-    removedAssignments.forEach(ra => {
+    removedAssignments.forEach((ra) => {
       newAssignments = unassign(ra, newAssignments);
     });
     newAssignments = assign(assignment, newAssignments);
@@ -107,11 +107,11 @@ export default class ProductsPage extends React.Component<
 
     const newAssignments = without(
       assignments,
-      removedAssignments.map(ra => ({
+      removedAssignments.map((ra) => ({
         variableId: ra.variable.id,
         variableName: ra.variable.name,
         valueId: ra.value.name,
-        valueName: ra.value.name
+        valueName: ra.value.name,
       }))
     );
 
@@ -154,7 +154,7 @@ export default class ProductsPage extends React.Component<
         <div className="configurator">
           <div
             className="content"
-            ref={e => (this.contentElm = e as HTMLDivElement)}
+            ref={(e) => (this.contentElm = e as HTMLDivElement)}
           >
             <SectionConfigurator
               section={sections[activeSection]}
@@ -197,7 +197,8 @@ export default class ProductsPage extends React.Component<
             height: 100%;
             z-index: 1;
             opacity: 0.1;
-            background-image: url(${process.env.PUBLIC_URL}/${brochureModel.value}.jpg);
+            background-image: url(${process.env
+              .PUBLIC_URL}/${brochureModel.value}.jpg);
             background-repeat: no-repeat;
             background-size: cover;
           }

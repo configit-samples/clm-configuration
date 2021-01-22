@@ -1,3 +1,5 @@
+> :point_up: The examples in the master branch are for the coming release (2.1.0) of Ace Platform. Checkout the [ace-platform-1.1 branch](https://github.com/configit-samples/ace-configuration-api-samples/tree/ace-platform-1.1) for v1.1 samples.
+
 # Configuration API Samples for Ace Platform
 
 This repository contains sample applications that show how to use Ace Platform's Configuration API.

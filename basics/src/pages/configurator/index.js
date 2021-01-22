@@ -9,7 +9,7 @@ import {
   unassign,
   removeAssignments,
   toAssignment,
-  reset
+  reset,
 } from './utils/assignment-utils';
 import './index.css';
 import { getConflict } from './utils/variable-utils';
@@ -75,14 +75,14 @@ class Configurator extends React.Component {
   quantity = { value: 1, unit: 'EA' };
 
   state = {
-    activeTabIndex: 0
+    activeTabIndex: 0,
   };
 
   componentDidMount() {
     this.configure(this.quantity);
   }
 
-  handleActiveTabChange = activeTabIndex => this.setState({ activeTabIndex });
+  handleActiveTabChange = (activeTabIndex) => this.setState({ activeTabIndex });
 
   /**
    * Called when the configuration needs to be recalculated.
@@ -101,17 +101,20 @@ class Configurator extends React.Component {
       const result = await configureAPI({
         packagePath,
         date: new Date(),
-        language: 'EN',
+        language: 'system',
         globalArguments,
         line: {
           quantity,
           productId,
-          variableAssignments: assignments.map(a => ({
+          variableAssignments: assignments.map((a) => ({
             variableId: a.variable.id,
             value: a.value.value,
-            exclude: a.value.exclude
-          }))
-        }
+            exclude: a.value.exclude,
+          })),
+        },
+        settings: {
+          phaseBehavior: 'InSections',
+        },
       });
 
       // update the state when new sections with the
@@ -127,7 +130,7 @@ class Configurator extends React.Component {
           sections: result.sections,
           removedAssignments: result.removedAssignments,
           issues: result.issues,
-          error: null
+          error: null,
         });
       }
     } catch (e) {
@@ -135,7 +138,7 @@ class Configurator extends React.Component {
         this.setState({
           error:
             `Product with id '${productId}' doesn't exist ` +
-            `in package with path '${packagePath}'`
+            `in package with path '${packagePath}'`,
         });
       } else {
         throw e;
@@ -199,11 +202,11 @@ class Configurator extends React.Component {
     this.setState({
       conflict: undefined,
       sections: this.state.nextResult.sections,
-      nextResult: null
+      nextResult: null,
     });
   };
 
-  handleQuantityChange = quantity => {
+  handleQuantityChange = (quantity) => {
     this.quantity = quantity;
     this.configure();
   };
@@ -217,7 +220,7 @@ class Configurator extends React.Component {
       conflict,
       activeTabIndex,
       error,
-      issues
+      issues,
     } = this.state;
 
     if (!productId) {
@@ -240,7 +243,7 @@ class Configurator extends React.Component {
             </ToobarButton>
           </Toolbar>
           <Tabs
-            tabs={sections.map(section => section.name)}
+            tabs={sections.map((section) => section.name)}
             onTabChange={this.handleActiveTabChange}
             activeTabIndex={activeTabIndex}
           >

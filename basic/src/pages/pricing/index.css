@@ -1,0 +1,9 @@
+.price-report {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-id-page {
+  padding: 10px 30px;
+}

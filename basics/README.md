@@ -2,7 +2,7 @@
 
 This sample application demonstrates how to use Ace Platform's Configuration API.
 
-It includes several parts:
+It includes these parts:
 
 - [Product search](docs/PRODUCT_SEARCH.md)
 - [Configurator](docs/CONFIGURATOR.md)

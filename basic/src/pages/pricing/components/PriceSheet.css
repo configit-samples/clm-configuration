@@ -1,0 +1,32 @@
+.price-sheet {
+  width: 100%;
+}
+.price-sheet-table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.price-sheet-table > tbody > tr > td,
+.price-sheet-table > thead > tr > th {
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #efefef;
+  border-radius: 2px;
+  padding: 12px;
+}
+
+.price-sheet-table > tbody > tr > td.align-right,
+.price-sheet-table > thead > tr > th.align-right {
+  text-align: right;
+}
+
+.disabled > td {
+  font-style: italic;
+  color: #8090ac;
+}
+
+.invalid > td {
+  color: #f73f32;
+}

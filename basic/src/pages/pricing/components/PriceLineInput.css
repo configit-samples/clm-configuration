@@ -1,0 +1,8 @@
+.price-line-input {
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+  margin: -12px;
+  border: none;
+  text-align: right;
+  padding: 12px;
+}

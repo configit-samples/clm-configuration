@@ -1,0 +1,29 @@
+.price-header {
+  display: flex;
+  background: white;
+  padding: 12px;
+}
+.price-header-product-id {
+  flex: 1;
+}
+.price-header-price {
+  font-weight: bold;
+}
+
+.price-header-quantity-value,
+.price-header-quantity-unit {
+  width: 100px;
+}
+
+.price-header-quantity-value input,
+.price-header-quantity-unit input {
+  width: calc(100% + 0px);
+  height: calc(100% + 22px);
+  margin: -12px;
+  border: none;
+  padding: 12px;
+}
+
+.price-header-quantity-value input {
+  text-align: right;
+}

@@ -1,0 +1,38 @@
+.variable-line {
+  display: flex;
+  align-items: flex-start;
+  padding: 6px 12px 6px 0;
+  justify-content: space-between;
+}
+
+.variable-line-text {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.variable-line-input {
+  flex: 1;
+  align-self: flex-end;
+  display: flex;
+}
+
+.variable-line-actions {
+  width: 16px;
+  vertical-align: middle;
+  line-height: 16px;
+}
+
+.assignment-mark {
+  margin-right: 6px;
+  width: 26px;
+  height: 26px;
+  padding: 2px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.assignment-mark-assigned {
+  background-color: rgb(2, 34, 90);
+  color: white;
+}

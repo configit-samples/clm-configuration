@@ -1,0 +1,12 @@
+.invalid-mark {
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+  background-color: #be2320;
+  color: white;
+  font-weight: 600;
+  padding: 3px 6px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,21 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  margin: 60px 26px 0 26px;
+  height: calc(100vh - 80px);
+  color: rgb(2, 34, 90);
+}
+
+.page-normal {
+  background-color: white;
+}
+
+.page-transparent {
+  background-color: transparent;
+}
+
+.page-overflow {
+  background-color: white;
+  overflow-y: auto;
+}

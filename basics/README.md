@@ -18,8 +18,9 @@ Before running the application for the first time, change the settings in the `.
 For example:
 
 ```
-REACT_APP_API_URL=http://localhost:9000/configurator/v1
-REACT_APP_PACKAGE_PATH=samples/ihear
+REACT_APP_API_URL=https://daily.clm-dev.cloud
+REACT_APP_PACKAGE_PATH=ace-samples/sample-models
+REACT_APP_API_KEY=MKUNki012....
 ```
 
 Next, install the code dependencies:

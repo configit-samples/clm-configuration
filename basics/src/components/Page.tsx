@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import './Page.css';
 
 type PageProps = {
   variant?: 'normal' | 'transparent';

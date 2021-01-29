@@ -1,14 +1,11 @@
 import React from 'react';
-import classnames from 'classnames';
-import { Clear } from '../../../components/Icons';
+import { ReactComponent as ClearIcon } from 'heroicons/solid/x.svg';
 import VariableInput from './VariableInput';
-import IconButton from './IconButton';
 import {
   getAssignedValue,
   hasUserAssignedValue,
   isRequiredWithoutAssignment,
 } from '../../../api/utils/variable-utils';
-import './VariableLine.css';
 import InvalidMark from './InvalidMark';
 import {
   ConfigurationValue,
@@ -36,12 +33,13 @@ type UnassignButtonProps = {
  */
 function UnassignButton({ variable, onUnassign }: UnassignButtonProps) {
   return (
-    <IconButton
+    <button
+      className="rounded-full focus:outline-none focus:ring text-gray-500"
       title={`Remove assignment to ${variable.name}`}
       onClick={() => onUnassign(variable)}
     >
-      <Clear width="12px" height="12px" />
-    </IconButton>
+      <ClearIcon width="20px" height="20px" />
+    </button>
   );
 }
 
@@ -81,12 +79,22 @@ const AssignedChars = {
   byPhase: 'P',
 };
 
+const AssignedText = {
+  byRule: 'Assigned by Rule',
+  byUser: 'Assigned by User',
+  byDefault: 'Assigned by Default',
+  byPhase: 'Assigned by Phase',
+};
+
 function AssignedByMark({ assignedValue }: AssignedByMarkProps) {
   if (!assignedValue || !assignedValue.assigned) {
-    return <div className="assignment-mark" />;
+    return <div />;
   }
   return (
-    <div className="assignment-mark assignment-mark-assigned">
+    <div
+      title={AssignedText[assignedValue.assigned]}
+      className="w-7 h-7 rounded-full align-center text-center text-white bg-green-600"
+    >
       {AssignedChars[assignedValue.assigned]}
     </div>
   );
@@ -104,29 +112,29 @@ function VariableLine({
   onAssign,
   onUnassign,
 }: VariableControlProps) {
-  const className = classnames('variable-line', {
-    'variable-line-invalid': variable.issues,
-  });
-
   return (
-    <div className={className}>
-      <div className="variable-line-text">
+    <div className="flex w-full py-2 items-start">
+      <div className="w-1/3">
         {variable.name} <RequiredMark variable={variable} />
         <Issues variable={variable} />
       </div>
-      <div className="variable-line-input">
-        <AssignedByMark assignedValue={getAssignedValue(variable)} />
-        <VariableInput
-          removedAssignments={removedAssignments}
-          variable={variable}
-          onAssign={onAssign}
-          onUnassign={onUnassign}
-        />
-      </div>
-      <div className="variable-line-actions">
-        {hasUserAssignedValue(variable) && (
-          <UnassignButton variable={variable} onUnassign={onUnassign} />
-        )}
+      <div className="w-2/3 flex items-center">
+        <div className="w-1/12">
+          <AssignedByMark assignedValue={getAssignedValue(variable)} />
+        </div>
+        <div className="w-10/12">
+          <VariableInput
+            removedAssignments={removedAssignments}
+            variable={variable}
+            onAssign={onAssign}
+            onUnassign={onUnassign}
+          />
+        </div>
+        <div className="w-1/12 text-center">
+          {hasUserAssignedValue(variable) && (
+            <UnassignButton variable={variable} onUnassign={onUnassign} />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import IssuesDialog from './IssuesDialog';
-import './InvalidMark.css';
 import { Issue } from '../../../api/types/configurator';
 
 type InvalidMarkPropTypes = {
@@ -22,7 +21,7 @@ export default function InvalidMark({ issues }: InvalidMarkPropTypes) {
   return (
     <>
       <button
-        className="invalid-mark"
+        className="btn bg-red-500 hover:bg-red-700"
         onClick={() => setShowDialog(!showDialog)}
       >
         Invalid ({issues.length === 1 ? '1 issue' : `${issues.length} issues`})

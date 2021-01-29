@@ -6,7 +6,7 @@ import './TopNav.css';
 function TopNav() {
   return (
     <div className="topnav">
-      <Link to="/" className="topnav-home-link">
+      <Link to="/">
         <Logo /> — Ace API samples
       </Link>
     </div>

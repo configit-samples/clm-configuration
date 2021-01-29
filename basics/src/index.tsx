@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import TopNav from './components/TopNav';
 
 import Toc from './Toc';
 
@@ -17,24 +16,24 @@ import './index.css';
  */
 function Root() {
   return (
-    <Router>
-      <React.Fragment>
-        <TopNav />
+    <React.StrictMode>
+      <Router>
+        <div className="container mx-auto px-6 bg-white">
+          <main>
+            {/* Home page with TOC */}
+            <Route exact path="/" component={Toc} />
 
-        <main className="content">
-          {/* Home page with TOC */}
-          <Route exact path="/" component={Toc} />
-
-          {/* examples */}
-          <Route path="/product-search" component={ProductSearchExample} />
-          <Route
-            path="/configurator/:productId?"
-            component={ConfiguratorExample}
-          />
-          <Route path="/pricing/:productId?" component={PricingExample} />
-        </main>
-      </React.Fragment>
-    </Router>
+            {/* examples */}
+            <Route path="/product-search" component={ProductSearchExample} />
+            <Route
+              path="/configurator/:productId?"
+              component={ConfiguratorExample}
+            />
+            <Route path="/pricing/:productId?" component={PricingExample} />
+          </main>
+        </div>
+      </Router>
+    </React.StrictMode>
   );
 }
 

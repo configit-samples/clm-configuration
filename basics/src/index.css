@@ -1,75 +1,30 @@
-html {
-  height: 100%;
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
+@layer components {
+  .input {
+    @apply py-1 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50;
+  }
+  .input-lg {
+    @apply rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50;
+  }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
-    sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  position: relative;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  background-color: rgb(31, 71, 120);
-}
-input,
-button,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
+  .btn {
+    @apply text-base font-medium rounded-md p-3 px-5 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50;
+  }
+  .btn-primary {
+    @apply bg-blue-500 text-white;
+  }
 
-::placeholder {
-  font-size: 13px;
-  color: rgba(2, 34, 90, 0.4);
-}
+  .btn-secondary {
+    @apply bg-gray-100 text-black;
+  }
 
-a:link,
-a:visited,
-a:active,
-a:hover {
-  color: #02225a;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background-color: rgba(255, 255, 255, 0);
-  -webkit-border-radius: 100px;
-}
-::-webkit-scrollbar:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(200, 200, 200, 0.65);
-  -webkit-border-radius: 100px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 200, 200, 0.75);
-}
-::-webkit-scrollbar-thumb:active {
-  background: rgba(200, 200, 200, 0.8);
-}
-
-::-webkit-scrollbar-thumb:vertical {
-  min-height: 10px;
-}
-::-webkit-scrollbar-thumb:horizontal {
-  min-width: 10px;
+  .table {
+    @apply border-collapse w-full border border-gray-300;
+  }
+  .td {
+    @apply border-b border-t border-gray-300 px-4 py-2;
+  }
 }

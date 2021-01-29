@@ -4,7 +4,6 @@ import {
   getAssignedValue,
   hasSystemAssignedValue,
 } from '../../../api/utils/variable-utils';
-import './Dropdown.css';
 import {
   SingletonValue,
   isSingletonValue,
@@ -25,7 +24,8 @@ function Option({ value }: OptionProps) {
   const { name } = value;
 
   const className = classnames({
-    'dropdown-incompatible': value.incompatible,
+    'bg-gray-500': value.incompatible,
+    'text-white': value.incompatible,
   });
 
   return (
@@ -67,7 +67,7 @@ export default function Dropdown({
 
   return (
     <select
-      className="dropdown"
+      className="input w-full"
       value={assignedValue.value?.toString()}
       onChange={handleOnChange}
     >

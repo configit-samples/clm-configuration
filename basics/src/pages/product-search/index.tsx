@@ -1,8 +1,10 @@
 import React, { FormEvent, useRef, useState } from 'react';
 import Page from '../../components/Page';
 import products from '../../api/products';
-import './index.css';
 import { ProductDetails as ProductDetailsType } from '../../api/types/configurator';
+import { ReactComponent as DownArrowIcon } from 'heroicons/solid/chevron-down.svg';
+import { ReactComponent as RightArrowIcon } from 'heroicons/solid/chevron-right.svg';
+import { Spinner } from '../../components/Spinner';
 
 type SearchInputProps = {
   isSearching: boolean;
@@ -22,7 +24,7 @@ function SearchInput({ isSearching, onSearch }: SearchInputProps) {
         onSearch(inputRef.current?.value || '');
       }}
       autoComplete="off"
-      className="product-search-input"
+      className="flex"
     >
       <input
         type="text"
@@ -30,9 +32,14 @@ function SearchInput({ isSearching, onSearch }: SearchInputProps) {
         placeholder="Search for products"
         ref={inputRef}
         disabled={isSearching}
+        className="flex-1 block w-full input mr-1"
       />
-      <button type="submit" disabled={isSearching}>
-        <span>⚲</span>
+      <button
+        type="submit"
+        disabled={isSearching}
+        className="btn btn-primary w-24 h-12 text-center"
+      >
+        {isSearching ? <Spinner /> : 'Search'}
       </button>
     </form>
   );
@@ -47,14 +54,21 @@ type ProductDetailsProps = {
  */
 function ProductDetails({ product }: ProductDetailsProps) {
   return (
-    <div className="product-details">
-      {product.properties?.map((property) => (
-        <React.Fragment key={property.id}>
-          <div>{property.id}</div>
-          <div>{property.value}</div>
-        </React.Fragment>
-      ))}
-    </div>
+    <>
+      <tr className="bg-gray-50 shadow-inner text-sm">
+        <td className="td border-none font-semibold pl-8" colSpan={3}>
+          <div className="pt-2 float-right text-lg text-gray-800 text-opacity-25">
+            Properties
+          </div>
+          {product.properties?.map((property) => (
+            <div className="p-2" key={property.id}>
+              <div className="text-gray-500">{property.id}:</div>
+              <div>{property.value}</div>
+            </div>
+          ))}
+        </td>
+      </tr>
+    </>
   );
 }
 
@@ -79,40 +93,47 @@ function ProductSummary({
   onToggleDetails,
 }: ProductSummaryProps) {
   return (
-    <div className="product-summary">
-      <div>
-        <div>{product.name}</div>
-        <div>
-          <em>{product.description}</em>
-        </div>
-      </div>
-      <div>
-        <div>
-          <em>
-            {product.isConfigurable ? (
-              <a href={`/configurator/${product.id}`}>Configure</a>
-            ) : (
-              'Standard'
-            )}
-          </em>
-          {', '}
-          <em>
-            <a href={`/pricing/${product.id}`}>Price</a>
-          </em>
-        </div>
-        <div>
-          {product.properties?.length ? (
-            <button
-              onClick={onToggleDetails}
-              className="product-summary-toggle-details"
-              type="button"
-            >
-              {showDetails ? 'Hide details' : 'Show details'}
-            </button>
-          ) : null}
-        </div>
-      </div>
-    </div>
+    <tr>
+      <td className="td">
+        {product.properties?.length ? (
+          <button
+            className="outline-none text-base focus:outline-none flex items-center"
+            onClick={onToggleDetails}
+          >
+            <div className="text-gray-500">
+              {showDetails ? (
+                <DownArrowIcon width={20} height={20} />
+              ) : (
+                <RightArrowIcon width={20} height={20} />
+              )}
+            </div>
+            {product.name}
+          </button>
+        ) : (
+          product.name
+        )}
+      </td>
+      <td className="td">{product.description}</td>
+      <td className="td text-right">
+        {product.isConfigurable ? (
+          <a
+            href={`/configurator/${product.id}`}
+            className="hover:underline text-blue-600"
+          >
+            Configure
+          </a>
+        ) : (
+          'Standard'
+        )}
+        <span className="px-2 text-gray-300">|</span>
+        <a
+          href={`/pricing/${product.id}`}
+          className="hover:underline text-blue-600"
+        >
+          Price
+        </a>
+      </td>
+    </tr>
   );
 }
 
@@ -129,14 +150,14 @@ function ProductListItem({ product }: ProductListItemProps) {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <div className="products-list-item">
+    <>
       <ProductSummary
         showDetails={showDetails}
         onToggleDetails={() => setShowDetails(!showDetails)}
         product={product}
       />
       {showDetails ? <ProductDetails product={product} /> : null}
-    </div>
+    </>
   );
 }
 
@@ -153,11 +174,20 @@ function ProductList({ products }: ProductListProps) {
   }
 
   return (
-    <div className="products-list">
-      {products.map((product) => (
-        <ProductListItem key={product.id} product={product} />
-      ))}
-    </div>
+    <table className="table table-fixed mt-3">
+      <thead className=" text-left text-gray-700 bg-gray-50">
+        <tr>
+          <th className="font-normal td w-1/4">Name</th>
+          <th className="font-normal td w-1/2">Description</th>
+          <th className="font-normal td w-1/4">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        {products.map((product) => (
+          <ProductListItem key={product.id} product={product} />
+        ))}
+      </tbody>
+    </table>
   );
 }
 
@@ -186,13 +216,9 @@ function ProductSearch() {
 
   return (
     <Page>
-      <div className="product-search">
+      <div>
         <SearchInput isSearching={isSearching} onSearch={handleSearch} />
-        {isSearching ? (
-          'Searching...'
-        ) : (
-          <ProductList products={loadedProducts} />
-        )}
+        {!isSearching ? <ProductList products={loadedProducts} /> : null}
       </div>
     </Page>
   );

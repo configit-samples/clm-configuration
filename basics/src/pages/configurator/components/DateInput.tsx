@@ -1,6 +1,5 @@
 import React, { AllHTMLAttributes, ChangeEvent, KeyboardEvent } from 'react';
 import classnames from 'classnames';
-import './DateInput.css';
 import {
   getAssignedValue,
   formatAvailableValues,
@@ -117,23 +116,20 @@ function DateInput({
   const message = removedAssignment
     ? getInvalidMessage(variable, removedAssignment)
     : null;
-  const className = classnames('input', {
-    'input-invalid': message,
-  });
 
   let displayValue = removedAssignment
     ? removedAssignment.value?.value?.toString()
     : assignedValue?.toString();
 
   return (
-    <div className="date-input">
+    <div className="w-full">
       <DatePicker
-        className={className}
         type="date"
+        className="input w-full"
         value={displayValue || ''}
         onChange={handleOnChange}
       />
-      <div className="date-input-help">{message}</div>
+      <div>{message}</div>
     </div>
   );
 }

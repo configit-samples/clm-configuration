@@ -25,7 +25,7 @@ type RequestType = {
   };
 };
 
-const CONFIGURE_URL = ``;
+const CONFIGURE_URL = `/configurator/v1/configure`;
 
 const baseRequest: RequestType = {
   currency: 'EUR',

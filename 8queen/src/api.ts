@@ -36,6 +36,7 @@ function localFetch(payload: object) {
 
   const request = new Request(
     process.env.REACT_APP_API_URL +
+      '/configurator/v1/configure' +
       '?packagePath=' +
       process.env.REACT_APP_PACKAGE_PATH,
     init

@@ -211,7 +211,7 @@ function Hints({ onPlaceQueen }) {
 
       <p className="call-to-action">
         <a
-          href="https://www.configit.com/solution-space"
+          href="https://www.configit.com/virtual-tabulation"
           target="_blank"
           rel="noopener noreferrer"
         >

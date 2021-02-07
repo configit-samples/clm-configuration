@@ -1,5 +1,4 @@
 import React, { AllHTMLAttributes, ChangeEvent, KeyboardEvent } from 'react';
-import classnames from 'classnames';
 import {
   getAssignedValue,
   formatAvailableValues,

@@ -2,7 +2,6 @@
  * Utilities for dealing with assignments which are input
  * to the `/configure` API
  */
-
 import {
   ConfigurationVariable,
   ConfigureResponse,
@@ -13,6 +12,7 @@ import {
 export type UIAssignment = {
   variable: ConfigurationVariable;
   value?: SingletonValue;
+  phase?: number;
 };
 export type UIConflict = {
   currentAssignment: RemovedAssignment;
@@ -55,20 +55,26 @@ export function toAssignment(
   };
 }
 
+export function toUIAssignment(
+  removedAssignment: RemovedAssignment
+): UIAssignment {
+  return {
+    variable: { ...removedAssignment.variable },
+    value: { ...removedAssignment.value },
+  };
+}
+
 /**
  * Returns new assignments array, where the assignments have been removed.
  */
-export const removeAssignments = (
+export function removeAssignments(
   variableAssignments: UIAssignment[],
-  assignments: UIAssignment[] | RemovedAssignment[]
-) => {
+  assignments: RemovedAssignment[]
+) {
   return variableAssignments.filter(
-    (va) =>
-      !assignments.some((a: UIAssignment | RemovedAssignment) =>
-        assignmentEq(a, va)
-      )
+    (va) => !assignments.some((a) => assignmentEq(a, va))
   );
-};
+}
 
 /**
  * Returns new assignments array, where the assignment have been removed.
@@ -100,4 +106,4 @@ export const assign = (
  * Return a new assignments array, where assignments to phases
  * after and including phase have been removed.
  */
-export const reset = () => [];
+export const reset: () => UIAssignment[] = () => [];

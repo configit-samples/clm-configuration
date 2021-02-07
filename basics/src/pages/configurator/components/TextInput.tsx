@@ -1,6 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
-import './TextInput.css';
 import {
   getAssignedValue,
   formatAvailableValues,
@@ -56,22 +54,18 @@ function TextInput({
   const message = removedAssignment
     ? getInvalidMessage(variable, removedAssignment)
     : null;
-  const className = classnames('input', {
-    'input-invalid': message,
-  });
   const displayValue = removedAssignment
     ? removedAssignment.value
     : assignedValue;
 
   return (
-    <div className="text-input">
+    <div>
       <Input
-        className={className}
         type={variable.valueType === 'Number' ? 'number' : undefined}
         value={displayValue?.toString() || ''}
         onChange={handleOnChange}
       />
-      <div className="text-input-help">{message}</div>
+      <div>{message}</div>
     </div>
   );
 }

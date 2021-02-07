@@ -24,8 +24,7 @@ function Option({ value }: OptionProps) {
   const { name } = value;
 
   const className = classnames({
-    'bg-gray-500': value.incompatible,
-    'text-white': value.incompatible,
+    'text-gray-400 line-through': value.incompatible,
   });
 
   return (

@@ -1,8 +1,6 @@
 import React from 'react';
-import Button from '../../../components/Button';
 import { Dialog } from '@reach/dialog';
 import '@reach/dialog/styles.css';
-import './ConflictDialog.css';
 
 import { RemovedAssignment } from '../../../api/types/configurator';
 import { UIAssignment, UIConflict } from '../../../api/utils/assignment-utils';
@@ -100,8 +98,8 @@ function ConflictDialog({ conflict, onAccept, onReject }: ConflictDialogProps) {
       onDismiss={onReject}
       isOpen={!!conflict}
     >
-      <div className="conflict">
-        <div className="conflict-content">
+      <div>
+        <div>
           <h1>Assign and remove?</h1>
           {currentAssignment && (
             <>
@@ -125,12 +123,14 @@ function ConflictDialog({ conflict, onAccept, onReject }: ConflictDialogProps) {
             </>
           )}
         </div>
-        <div className="conflict-footer">
-          <Button onClick={onAccept}>Assign and remove</Button>
+        <div>
+          <button className="btn btn-primary" onClick={onAccept}>
+            Assign and remove
+          </button>
           &nbsp;&nbsp;
-          <Button variant="link" onClick={onReject}>
+          <button className="btn btn-secondary" onClick={onReject}>
             Cancel
-          </Button>
+          </button>
         </div>
       </div>
     </Dialog>

@@ -52,6 +52,20 @@ export function hasSystemAssignedValue(variable: ConfigurationVariable) {
 }
 
 /**
+ * Does the variable have a value assigned by rule.
+ */
+export function hasRuleValue(variable: ConfigurationVariable) {
+  return getValuesWithState(variable).some((v) => v.assigned === 'byPhase');
+}
+
+/**
+ * Does the variable have a value assigned by phase.
+ */
+export function hasPhaseAssignedValue(variable: ConfigurationVariable) {
+  return getValuesWithState(variable).some((v) => v.assigned === 'byPhase');
+}
+
+/**
  * Does the variable have any user assigned value.
  */
 export function hasUserAssignedValue(variable: ConfigurationVariable) {

@@ -1,5 +1,4 @@
 import React, { MouseEvent, ReactNode } from 'react';
-import './Toolbar.css';
 
 type ToolbarButtonProps = {
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;

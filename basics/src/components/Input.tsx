@@ -1,5 +1,4 @@
 import React, { ChangeEvent, KeyboardEvent, AllHTMLAttributes } from 'react';
-import './Input.css';
 
 type InputProps = {
   value: string;
@@ -64,7 +63,7 @@ class Input extends React.Component<InputProps, InputState> {
     );
 
     if (showEditMarker) {
-      return <div className="input-container">{inputElm}</div>;
+      return <div>{inputElm}</div>;
     }
 
     return inputElm;

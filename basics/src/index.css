@@ -1,3 +1,7 @@
+html {
+  font-size: 14px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,22 +13,25 @@
   .input-lg {
     @apply rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-50;
   }
-
-  .btn {
-    @apply text-base font-medium rounded-md p-3 px-5 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50;
+  .h1 {
+    @apply text-5xl font-semibold;
   }
-  .btn-primary {
-    @apply bg-blue-500 text-white;
-  }
-
-  .btn-secondary {
-    @apply bg-gray-100 text-black;
-  }
-
   .table {
     @apply border-collapse w-full border border-gray-300;
   }
   .td {
     @apply border-b border-t border-gray-300 px-4 py-2;
+  }
+  /* h1 {
+    @apply text-xl font-bold py-2;
+  }
+  h2 {
+    @apply text-lg py-2 font-semibold;
+  }
+  button {
+    @apply text-base mr-2 p-2 items-center shadow-sm border rounded-md focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 disabled:opacity-50 inline-block;
+  } */
+  .inner-content {
+    @apply w-full max-w-screen-lg mx-auto;
   }
 }

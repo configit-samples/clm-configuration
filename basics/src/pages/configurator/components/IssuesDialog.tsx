@@ -1,8 +1,6 @@
 import React from 'react';
-import Button from '../../../components/Button';
 import { Dialog } from '@reach/dialog';
 import '@reach/dialog/styles.css';
-import './IssuesDialog.css';
 import { Issue } from '../../../api/types/configurator';
 
 function highlightWord(word: string) {
@@ -56,7 +54,9 @@ export default function IssuesDialog({
           </ul>
         </div>
         <div className="issues-footer">
-          <Button onClick={onDismiss}>OK</Button>
+          <button onClick={onDismiss} className="btn btn-primary">
+            OK
+          </button>
         </div>
       </div>
     </Dialog>

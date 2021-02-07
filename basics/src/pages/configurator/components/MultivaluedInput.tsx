@@ -1,8 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
-import './MultivaluedInput.css';
 import { VariableControlProps } from './proptypes';
 import { SingletonValue, ValueState } from '../../../api/types/configurator';
+import tw from '../../../styles/classnames';
+import * as utils from '../../../api/utils';
 
 type MultivaluedOptionProps = {
   value: SingletonValue;
@@ -44,8 +45,8 @@ function MultivaluedOption({
     }
   }
 
-  const className = classnames('multivalued-option', {
-    'multivalued-option-incompatible': incompatible(value, exclude),
+  const className = tw('pr-4', 'flex', 'items-center', {
+    'line-through': incompatible(value, exclude),
   });
   const checked = !!assigned(value, exclude);
 
@@ -62,8 +63,67 @@ function MultivaluedOption({
         onChange={() => {}}
         value={valueString}
       />
-      {exclude ? 'No' : 'Yes'}
+      <span className="pl-1">{exclude ? 'No' : 'Yes'}</span>
     </label>
+  );
+}
+type MultivaluedValueProps = Omit<
+  VariableControlProps,
+  'removedAssignments'
+> & {
+  value: SingletonValue;
+};
+
+function MultivaluedValue({
+  value,
+  variable,
+  onAssign,
+  onUnassign,
+}: MultivaluedValueProps) {
+  if (value.assigned === 'byPhase') {
+    return (
+      <MultivaluedOption
+        variable={variable}
+        value={value}
+        onAssign={onAssign}
+        onUnassign={onUnassign}
+        exclude={false}
+        key="yes"
+      />
+    );
+  }
+  if (value.excluded?.assigned === 'byPhase') {
+    return (
+      <MultivaluedOption
+        variable={variable}
+        value={value}
+        onAssign={onAssign}
+        onUnassign={onUnassign}
+        exclude={true}
+        key="no"
+      />
+    );
+  }
+  return (
+    <div className="flex">
+      <MultivaluedOption
+        variable={variable}
+        value={value}
+        onAssign={onAssign}
+        onUnassign={onUnassign}
+        exclude={false}
+        key="yes"
+      />
+
+      <MultivaluedOption
+        variable={variable}
+        value={value}
+        onAssign={onAssign}
+        onUnassign={onUnassign}
+        exclude={true}
+        key="no"
+      />
+    </div>
   );
 }
 
@@ -87,28 +147,18 @@ function MultivaluedInput({
       : variable.values) || [];
 
   return (
-    <div className="multivalued">
+    <div className="flex flex-col gap-4">
       {values.map((value) => (
-        <div className="multivalued-options" key={value.value?.toString()}>
-          <div className="multivalued-options-title">{value.name}</div>
-
-          <MultivaluedOption
-            variable={variable}
-            value={value}
-            onAssign={onAssign}
-            onUnassign={onUnassign}
-            exclude={false}
-            key="yes"
-          />
-
-          <MultivaluedOption
-            variable={variable}
-            value={value}
-            onAssign={onAssign}
-            onUnassign={onUnassign}
-            exclude={true}
-            key="no"
-          />
+        <div key={value.value?.toString()}>
+          <div className="text-gray-700 font-semibold">{value.name}</div>
+          <div>
+            <MultivaluedValue
+              variable={variable}
+              value={value}
+              onAssign={onAssign}
+              onUnassign={onUnassign}
+            />
+          </div>
         </div>
       ))}
     </div>

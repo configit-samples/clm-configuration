@@ -1,15 +1,16 @@
-import React, { FormEvent, useRef, useState } from 'react';
-import Page from '../../components/Page';
-import products from '../../api/products';
-import { ProductDetails as ProductDetailsType } from '../../api/types/configurator';
+import React, { FormEvent, useEffect, useRef, useState } from 'react';
+import products from '../api/products-search';
+import { ProductDetails as ProductDetailsType } from '../api/types/configurator';
 import { ReactComponent as DownArrowIcon } from 'heroicons/solid/chevron-down.svg';
 import { ReactComponent as RightArrowIcon } from 'heroicons/solid/chevron-right.svg';
-import { Spinner } from '../../components/Spinner';
+import { Spinner } from '../components/Spinner';
+import { Button } from '../components/Button';
 
 type SearchInputProps = {
   isSearching: boolean;
   onSearch: (value: string) => void;
 };
+
 /**
  * Component with an input field and a button.
  *
@@ -34,13 +35,14 @@ function SearchInput({ isSearching, onSearch }: SearchInputProps) {
         disabled={isSearching}
         className="flex-1 block w-full input mr-1"
       />
-      <button
+      <Button
         type="submit"
+        variant="primary"
         disabled={isSearching}
-        className="btn btn-primary w-24 h-12 text-center"
+        className="w-24 h-12"
       >
         {isSearching ? <Spinner /> : 'Search'}
-      </button>
+      </Button>
     </form>
   );
 }
@@ -117,7 +119,7 @@ function ProductSummary({
       <td className="td text-right">
         {product.isConfigurable ? (
           <a
-            href={`/configurator/${product.id}`}
+            href={`/${product.id}/configurator/`}
             className="hover:underline text-blue-600"
           >
             Configure
@@ -125,13 +127,6 @@ function ProductSummary({
         ) : (
           'Standard'
         )}
-        <span className="px-2 text-gray-300">|</span>
-        <a
-          href={`/pricing/${product.id}`}
-          className="hover:underline text-blue-600"
-        >
-          Price
-        </a>
       </td>
     </tr>
   );
@@ -195,7 +190,7 @@ function ProductList({ products }: ProductListProps) {
  * Example of how to use the product search api to find
  * products in a package.
  */
-function ProductSearch() {
+export function ProductSearchPage() {
   const [isSearching, setIsSearching] = useState(false);
   const [loadedProducts, setLoadedProducts] = useState<ProductDetailsType[]>(
     []
@@ -214,14 +209,14 @@ function ProductSearch() {
     setLoadedProducts(result.products || []);
   }
 
+  useEffect(() => {
+    handleSearch('');
+  }, []);
+
   return (
-    <Page>
-      <div>
-        <SearchInput isSearching={isSearching} onSearch={handleSearch} />
-        {!isSearching ? <ProductList products={loadedProducts} /> : null}
-      </div>
-    </Page>
+    <div className="max-w-screen-xl mx-auto mt-12 px-10">
+      <SearchInput isSearching={isSearching} onSearch={handleSearch} />
+      {!isSearching ? <ProductList products={loadedProducts} /> : null}
+    </div>
   );
 }
-
-export default ProductSearch;

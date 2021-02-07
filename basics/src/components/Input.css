@@ -1,8 +1,0 @@
-.input-container {
-  position: relative;
-}
-.input-container:before {
-  content: '✎';
-  position: absolute;
-  left: 3px;
-}

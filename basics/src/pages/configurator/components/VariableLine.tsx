@@ -6,7 +6,6 @@ import {
   hasUserAssignedValue,
   isRequiredWithoutAssignment,
 } from '../../../api/utils/variable-utils';
-import InvalidMark from './InvalidMark';
 import {
   ConfigurationValue,
   ConfigurationVariable,
@@ -65,7 +64,7 @@ type IssuesProps = {
  * Render any potential issues for a variable
  */
 function Issues({ variable }: IssuesProps) {
-  return <InvalidMark issues={variable.issues} />;
+  return variable.issues ? <div>!</div> : null;
 }
 
 type AssignedByMarkProps = {
@@ -112,13 +111,16 @@ function VariableLine({
   onAssign,
   onUnassign,
 }: VariableControlProps) {
+  let className = 'flex w-full py-2 border-b items-start';
+  if (variable.issues) {
+    className += ' bg-red-100 rounded';
+  }
   return (
-    <div className="flex w-full py-2 items-start">
+    <div className={className}>
       <div className="w-1/3">
         {variable.name} <RequiredMark variable={variable} />
-        <Issues variable={variable} />
       </div>
-      <div className="w-2/3 flex items-center">
+      <div className="w-2/3 flex self-start">
         <div className="w-1/12">
           <AssignedByMark assignedValue={getAssignedValue(variable)} />
         </div>
@@ -130,7 +132,7 @@ function VariableLine({
             onUnassign={onUnassign}
           />
         </div>
-        <div className="w-1/12 text-center">
+        <div className="w-1/12 self-start">
           {hasUserAssignedValue(variable) && (
             <UnassignButton variable={variable} onUnassign={onUnassign} />
           )}

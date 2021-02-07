@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Page from '../../components/Page';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import priceAPI from '../../api/price';
 import PriceSheet from './components/PriceSheet';
 import { globalArguments } from '../../globalArguments';
@@ -10,25 +9,28 @@ import {
   ValueWithUnit,
 } from '../../api/types/configurator';
 import { useParams } from 'react-router';
+import { ProductSummaryContext } from '../ProductModel';
+import pluralize from 'pluralize';
+import { List } from '../../components/List';
+import { Link } from 'react-router-dom';
+import { Button } from '../../components/Button';
 
 /**
  * Component shown if product Id and/or configuration id is missing from URL.
  */
 function NoIdPage({ productId }: { productId: string }) {
   return (
-    <Page>
-      <div className="no-id-page">
-        <h2>{!productId} Product id is missing</h2>
-        <p>
-          To start the specify a product id in the URL, for example{' '}
-          <a href="/pricing/CBEER">/pricing/CBEER</a>
-        </p>
-        <p>
-          If you don't know any product id, use the{' '}
-          <a href="/product-search">product search</a> to find one.
-        </p>
-      </div>
-    </Page>
+    <div className="no-id-page">
+      <h2>{!productId} Product id is missing</h2>
+      <p>
+        To start the specify a product id in the URL, for example{' '}
+        <a href="/pricing/CBEER">/pricing/CBEER</a>
+      </p>
+      <p>
+        If you don't know any product id, use the{' '}
+        <a href="/product-search">product search</a> to find one.
+      </p>
+    </div>
   );
 }
 
@@ -56,7 +58,7 @@ type PriceAssignmentLookup = { [key: string]: number };
  * | +----------------------------------------------------------------------+ |
  * +--------------------------------------------------------------------------+
  */
-function Pricing() {
+export function PricingPage() {
   const assignments = useRef<PriceAssignmentLookup>({});
   const quantity = useRef<ValueWithUnit>({ value: 1, unit: 'EA' });
   const { productId } = useParams<{ productId: string }>();
@@ -138,14 +140,14 @@ function Pricing() {
     return <NoIdPage productId={productId} />;
   }
   if (error) {
-    return <Page>{error}</Page>;
+    return <div>{error}</div>;
   }
   if (!priceSheet) {
-    return <Page>Loading…</Page>;
+    return <div>Loading…</div>;
   }
 
   return (
-    <Page variant="transparent">
+    <>
       <PriceHeader
         quantity={quantity.current}
         onQuantityChange={handleQuantityChange}
@@ -153,8 +155,33 @@ function Pricing() {
         totalPrice={priceSheet.totals?.total}
       />
       <PriceSheet priceSheet={priceSheet} onAssign={handleOnAssign} />
-    </Page>
+    </>
   );
 }
 
-export default Pricing;
+export function PricingSummary() {
+  const { productInfo, packageInfo } = useContext(ProductSummaryContext);
+
+  if (!productInfo && !packageInfo) {
+    return null;
+  }
+  return (
+    <List>{pluralize('Variable', productInfo?.variables?.length, true)}</List>
+  );
+}
+
+export function PricingActions() {
+  const { productInfo } = useContext(ProductSummaryContext);
+
+  return (
+    <List>
+      <Button to="/">All Products</Button>
+      <Button variant="primary" to={`/${productInfo?.id}`}>
+        Details
+      </Button>
+      <Button variant="primary" to={`/${productInfo?.id}/configurator`}>
+        Configure
+      </Button>
+    </List>
+  );
+}

@@ -73,7 +73,6 @@ const baseRequest = {
   currency: 'EUR',
   language: 'system',
   date: new Date(),
-  viewId: 'DEFAULT',
   line: {
     id: 'ROOT',
     quantity: { value: 1, unit: 'EA' },

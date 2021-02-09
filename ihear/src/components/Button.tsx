@@ -4,9 +4,7 @@ import classnames from 'classnames';
 import { tint, darken } from './color';
 import * as theme from './theme';
 
-const transition = `background-color ${
-  theme.COLOR_TRANSITION_DURATION
-}, color ${theme.COLOR_TRANSITION_DURATION}`;
+const transition = `background-color ${theme.COLOR_TRANSITION_DURATION}, color ${theme.COLOR_TRANSITION_DURATION}`;
 
 const styles = css`
   .button {
@@ -14,7 +12,7 @@ const styles = css`
     vertical-align: middle;
     padding: 0 30px;
     border: none;
-    border-radius: 2px;
+    border-radius: 4px;
     transition: ${transition};
     cursor: pointer;
     white-space: nowrap;
@@ -129,7 +127,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         href={href}
         className={classnames('button', color, size, {
           disabled: props.disabled,
-          selected: isSelected
+          selected: isSelected,
         })}
       >
         {children}
@@ -141,7 +139,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
         className={classnames('button', color, size, {
           disabled: props.disabled,
-          selected: isSelected
+          selected: isSelected,
         })}
       >
         {children}

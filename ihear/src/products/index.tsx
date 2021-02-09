@@ -6,7 +6,6 @@ import { Section, Assignment, Value } from '../api/types';
 import * as theme from '../components/theme';
 import Selections from '../components/Selections';
 import SectionConfigurator from './components/SectionConfigurator';
-import Footer from './components/Footer';
 import { SettingsContext } from '../Settings';
 import { RouteChildrenProps } from 'react-router';
 
@@ -148,37 +147,49 @@ export default class ProductsPage extends React.Component<
 
     return (
       <div className="container">
-        <h2>
-          Configure <strong>your</strong> {brochureModel.name}
-        </h2>
+        <div className="title">
+          <h2>
+            Configure <strong>your</strong> {brochureModel.name}
+          </h2>
+        </div>
+
         <div className="configurator">
           <div
             className="content"
             ref={(e) => (this.contentElm = e as HTMLDivElement)}
           >
-            <SectionConfigurator
-              section={sections[activeSection]}
-              onAssign={this.handleAssign}
-              onUnassign={this.handleUnassign}
-              onCheckRemovedAssignments={this.handelCheckRemovedAssignments}
-            />
+            <div className="nav-and-content">
+              <SectionConfigurator
+                section={sections[activeSection]}
+                onAssign={this.handleAssign}
+                onUnassign={this.handleUnassign}
+                onCheckRemovedAssignments={this.handelCheckRemovedAssignments}
+                onPrev={this.handlePrev}
+                prevSection={sections[activeSection - 1]}
+                onNext={this.handleNext}
+                nextSection={
+                  sections[activeSection + 1] || { id: 'DONE', name: 'Done' }
+                }
+              />
+            </div>
             <div className="all-selections">
               <Selections sections={sections} layout="small" />
             </div>
           </div>
-          <Footer
-            onPrev={this.handlePrev}
-            prevSection={sections[activeSection - 1]}
-            onNext={this.handleNext}
-            nextSection={
-              sections[activeSection + 1] || { id: 'DONE', name: 'Done' }
-            }
-          />
         </div>
         <style jsx>{`
+          .title {
+            display: flex;
+          }
+          .title > h2 {
+            flex: 1;
+          }
           .container {
             display: flex;
             flex-direction: column;
+          }
+          .nav-and-content {
+            flex: 1;
           }
           .configurator {
             display: flex;
@@ -186,8 +197,10 @@ export default class ProductsPage extends React.Component<
             position: relative;
             padding: 10px 20px 20px 20px;
             box-shadow: ${theme.LIST_SHADOW};
+            overflow: auto;
+            height: calc(100vh-200px);
           }
-          .configurator:before {
+          .configurator::after {
             content: ' ';
             display: block;
             position: absolute;
@@ -197,6 +210,7 @@ export default class ProductsPage extends React.Component<
             height: 100%;
             z-index: 1;
             opacity: 0.1;
+            pointer-events: none;
             background-image: url(${process.env
               .PUBLIC_URL}/${brochureModel.value}.jpg);
             background-repeat: no-repeat;
@@ -206,11 +220,9 @@ export default class ProductsPage extends React.Component<
             flex: 10;
             display: flex;
             flex-direction: row;
-            overflow: auto;
           }
           .all-selections {
             z-index: 4;
-            overflow: auto;
           }
           header {
             z-index: 2;

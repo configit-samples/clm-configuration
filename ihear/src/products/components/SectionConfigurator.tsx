@@ -1,8 +1,13 @@
 import React from 'react';
 import { Section, Assignment, IncompatibleAssignment } from '../../api/types';
+import Navigation from './Navigation';
 import VariableLine from './VariableLine';
 type SectionConfiguratorProps = {
   section: Section;
+  prevSection: Section;
+  onPrev: () => void;
+  nextSection: Section;
+  onNext: () => void;
   onAssign: (assignment: Assignment) => void;
   onUnassign: (assignment: Assignment) => void;
   onCheckRemovedAssignments: (
@@ -11,13 +16,26 @@ type SectionConfiguratorProps = {
 };
 function SectionConfigurator({
   section,
+  prevSection,
+  nextSection,
+  onPrev,
+  onNext,
   onAssign,
   onUnassign,
   onCheckRemovedAssignments,
 }: SectionConfiguratorProps) {
   return (
     <section>
-      <h3>{section.name}</h3>
+      <div className="title">
+        <h3>{section.name}</h3>
+
+        <Navigation
+          onPrev={onPrev}
+          prevSection={prevSection}
+          onNext={onNext}
+          nextSection={nextSection}
+        />
+      </div>
       {section.variables.map((variable) => (
         <VariableLine
           variable={variable}
@@ -32,6 +50,14 @@ function SectionConfigurator({
           flex: 1;
           align-content: flex-start;
           z-index: 2;
+        }
+        .title {
+          display: flex;
+          align-items: center;
+          padding-right: 4px;
+        }
+        .title > h3 {
+          flex: 1;
         }
       `}</style>
     </section>

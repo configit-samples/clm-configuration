@@ -1,19 +1,19 @@
 import React from 'react';
 import { Section } from '../../api/types';
 import Button from '../../components/Button';
-type FooterProps = {
+type NavigationProps = {
   prevSection: Section;
   onPrev: () => void;
   nextSection: Section;
   onNext: () => void;
 };
-const Footer: React.SFC<FooterProps> = ({
+const Navigation: React.SFC<NavigationProps> = ({
   prevSection,
   onPrev,
   nextSection,
-  onNext
+  onNext,
 }) => (
-  <footer>
+  <nav>
     <div className="prev">
       {prevSection && (
         <Button color="dark" size="normal" onClick={onPrev}>
@@ -31,7 +31,7 @@ const Footer: React.SFC<FooterProps> = ({
       )}
     </div>
     <style jsx>{`
-      footer {
+      nav {
         display: flex;
         flex-direction: row;
 
@@ -40,8 +40,11 @@ const Footer: React.SFC<FooterProps> = ({
         margin-top: 24px;
         margin-bottom: 12px;
       }
+      .prev {
+        margin-right: 6px;
+      }
     `}</style>
-  </footer>
+  </nav>
 );
 
-export default Footer;
+export default Navigation;

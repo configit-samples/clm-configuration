@@ -10,7 +10,7 @@ const textInputStyle = css`
   input {
     background-color: ${theme.NORMAL_BG};
     border: none;
-    border-radius: 2px;
+    border-radius: 4px;
     font-size: 13px;
     color: ${theme.BRAND_COLOR};
     transition: ${transition};
@@ -122,7 +122,7 @@ type TextInputPropTypes = {
  */
 class TextInput extends React.Component<TextInputPropTypes> {
   static defaultProps = {
-    type: 'text'
+    type: 'text',
   };
 
   input: HTMLInputElement | undefined;
@@ -131,7 +131,7 @@ class TextInput extends React.Component<TextInputPropTypes> {
     this.input && this.input.focus();
   };
 
-  handleKeyDown = e => {
+  handleKeyDown = (e) => {
     if (this.props.onKeyDown) {
       this.props.onKeyDown(e);
     }
@@ -151,7 +151,7 @@ class TextInput extends React.Component<TextInputPropTypes> {
           {...props}
           onKeyDown={this.handleKeyDown}
           className={className}
-          ref={el => (this.input = el as HTMLInputElement)}
+          ref={(el) => (this.input = el as HTMLInputElement)}
         />
 
         <style jsx>{textInputStyle}</style>

@@ -1,21 +1,20 @@
 import React from 'react';
 import { ReactComponent as ClearIcon } from 'heroicons/solid/x.svg';
+import { ReactComponent as InfoIcon } from 'heroicons/outline/information-circle.svg';
 import VariableInput from './VariableInput';
-import {
-  getAssignedValue,
+import {,
   hasUserAssignedValue,
   isRequiredWithoutAssignment,
 } from '../../../api/utils/variable-utils';
 import {
   ConfigurationValue,
   ConfigurationVariable,
-  SingletonValue,
 } from '../../../api/types/configurator';
 import { VariableControlProps } from './proptypes';
+import { useConfigurator } from '../ConfiguratorContext';
 
-type UnassignButtonProps = {
+type VariableButtonProps = {
   variable: ConfigurationVariable;
-  onUnassign: (v: ConfigurationVariable, value?: SingletonValue) => void;
 };
 
 /**
@@ -30,14 +29,29 @@ type UnassignButtonProps = {
 /**
  * Button for un assigning all values from a variables
  */
-function UnassignButton({ variable, onUnassign }: UnassignButtonProps) {
+function UnassignButton({ variable }: VariableButtonProps) {
+  const { unAssign } = useConfigurator();
   return (
     <button
       className="rounded-full focus:outline-none focus:ring text-gray-500"
       title={`Remove assignment to ${variable.name}`}
-      onClick={() => onUnassign(variable)}
+      onClick={() => unAssign(variable)}
     >
       <ClearIcon width="20px" height="20px" />
+    </button>
+  );
+}
+
+/**
+ * Info button for un assigning all values from a variables
+ */
+function InfoButton({ variable }: VariableButtonProps) {
+  return (
+    <button
+      className="rounded-full focus:outline-none focus:ring text-blue-800"
+      title={`Information about ${variable.name}`}
+    >
+      <InfoIcon width="20px" height="20px" />
     </button>
   );
 }
@@ -98,6 +112,7 @@ function AssignedByMark({ assignedValue }: AssignedByMarkProps) {
     </div>
   );
 }
+
 /**
  * `<VariableLine>` component renders
  *
@@ -117,26 +132,24 @@ function VariableLine({
   }
   return (
     <div className={className}>
-      <div className="w-1/3">
+      <div className="w-5/12">
         {variable.name} <RequiredMark variable={variable} />
       </div>
-      <div className="w-2/3 flex self-start">
-        <div className="w-1/12">
-          <AssignedByMark assignedValue={getAssignedValue(variable)} />
-        </div>
-        <div className="w-10/12">
-          <VariableInput
-            removedAssignments={removedAssignments}
-            variable={variable}
-            onAssign={onAssign}
-            onUnassign={onUnassign}
-          />
-        </div>
-        <div className="w-1/12 self-start">
-          {hasUserAssignedValue(variable) && (
-            <UnassignButton variable={variable} onUnassign={onUnassign} />
-          )}
-        </div>
+      <div className="w-8 pt-1 text-center self-start">
+        <InfoButton variable={variable} />
+      </div>
+      <div className="flex-1">
+        <VariableInput
+          removedAssignments={removedAssignments}
+          variable={variable}
+          onAssign={onAssign}
+          onUnassign={onUnassign}
+        />
+      </div>
+      <div className="w-8 self-start pt-1 text-center">
+        {hasUserAssignedValue(variable) && (
+          <UnassignButton variable={variable} />
+        )}
       </div>
     </div>
   );
